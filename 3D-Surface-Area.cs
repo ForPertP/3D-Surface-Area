@@ -22,3 +22,32 @@ class Result
      * The function accepts 2D_INTEGER_ARRAY A as parameter.
      */
 }
+
+
+class Solution
+{
+    public static void Main(string[] args)
+    {
+        TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
+
+        string[] firstMultipleInput = Console.ReadLine().TrimEnd().Split(' ');
+
+        int H = Convert.ToInt32(firstMultipleInput[0]);
+
+        int W = Convert.ToInt32(firstMultipleInput[1]);
+
+        List<List<int>> A = new List<List<int>>();
+
+        for (int i = 0; i < H; i++)
+        {
+            A.Add(Console.ReadLine().TrimEnd().Split(' ').ToList().Select(ATemp => Convert.ToInt32(ATemp)).ToList());
+        }
+
+        int result = Result.surfaceArea(A);
+
+        textWriter.WriteLine(result);
+
+        textWriter.Flush();
+        textWriter.Close();
+    }
+}
