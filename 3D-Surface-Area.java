@@ -12,3 +12,39 @@ import static java.util.stream.Collectors.toList;
 
 class Result {
 }
+
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        String[] firstMultipleInput = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
+
+        int H = Integer.parseInt(firstMultipleInput[0]);
+
+        int W = Integer.parseInt(firstMultipleInput[1]);
+
+        List<List<Integer>> A = new ArrayList<>();
+
+        IntStream.range(0, H).forEach(i -> {
+            try {
+                A.add(
+                    Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
+                        .map(Integer::parseInt)
+                        .collect(toList())
+                );
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        int result = Result.surfaceArea(A);
+
+        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
