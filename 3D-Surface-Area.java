@@ -11,8 +11,34 @@ import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
 class Result {
-}
 
+    /*
+     * Complete the 'surfaceArea' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts 2D_INTEGER_ARRAY A as parameter.
+     */
+
+    public static int surfaceArea(List<List<Integer>> A) {
+    // Write your code here
+        int sum = 0;
+
+        for (int i = 0; i < A.size(); ++i) {
+            for (int j = 0; j < A.get(0).size(); ++j) {
+                sum += A.get(i).get(j) * 4 + 2;
+
+                if (j + 1 < A.get(0).size())
+                    sum -= 2 * Math.min(A.get(i).get(j), A.get(i).get(j + 1));
+
+                if (i + 1 < A.size())
+                    sum -= 2 * Math.min(A.get(i).get(j), A.get(i + 1).get(j));
+            }
+        }
+
+        return sum;
+    }
+
+}
 
 public class Solution {
     public static void main(String[] args) throws IOException {
