@@ -11,6 +11,7 @@ import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
 class Result {
+
     /*
      * Complete the 'surfaceArea' function below.
      *
@@ -19,7 +20,7 @@ class Result {
      */
 
     public static int surfaceArea(List<List<Integer>> A) {
-    // Write your code here
+        // Write your code here
         int sum = 0;
 
         for (int i = 0; i < A.size(); ++i) {
@@ -36,6 +37,7 @@ class Result {
 
         return sum;
     }
+
 }
 
 public class Solution {
